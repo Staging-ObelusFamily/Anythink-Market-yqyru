@@ -6,13 +6,13 @@ services:
     command: sh -c "cd backend && yarn install && yarn dev"
     environment:
       - NODE_ENV=development
-      - PORT=3000
+      - PORT=3010
       - MONGODB_URI=mongodb://mongodb:27017
     working_dir: /usr/src
     volumes:
       - ./:/usr/src/
     ports:
-      - "3000:3000"
+      - "3010:3010"
     depends_on:
       - mongodb
 
@@ -22,12 +22,12 @@ services:
     command: sh -c "cd frontend && yarn install && yarn start"
     environment:
       - NODE_ENV=development
-      - PORT=3001
+      - PORT=3011
     working_dir: /usr/src
     volumes:
       - ./:/usr/src/
     ports:
-      - "3001:3001"
+      - "3011:3011"
     depends_on:
       - anythink-backend
 
@@ -36,6 +36,6 @@ services:
     restart: always
     image: mongo
     volumes:
-      - ~/mongo/data:/data/db
+      - ~/anythink-mongo/data:/data/db
     ports:
-      - '27017:27017'
+      - '27027:27017'
