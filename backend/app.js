@@ -10,6 +10,8 @@ var http = require("http"),
   errorhandler = require("errorhandler"),
   mongoose = require("mongoose");
 
+require('newrelic');
+
 var isProduction = process.env.NODE_ENV === "production";
 
 // Create global app object
